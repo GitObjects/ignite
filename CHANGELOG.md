@@ -199,7 +199,7 @@ The main themes of this release has been:
 - **containerd** is now used as the default container runtime for higher security and speed, and less resource usage
   - This means that Ignite doesn't depend on `docker` anymore!
 - **CNI** is now the default networking plugin; by default the `bridge` and `portmap` plugins are used
-  - You can still use your third-party CNI implementation of choice, see [the networking doc](https://ignite.readthedocs.io/en/stable/networking)
+  - You can still use your third-party CNI implementation of choice, see [the networking doc](https://ignite.readthedocs.io/en/stable/networking.html)
 - **GitOps Toolkit** refactor is complete; now everything you need to create your Git-backed application is available at **https://github.com/weaveworks/gitops-toolkit**
   - Ignite is using this toolkit internally to perform its GitOps capabilities, now you can easily use this functionality, too!
 - **Bugfixes and usability improvements** all around the place
@@ -616,7 +616,7 @@ We hope to see this trend continue, all help is very welcome to this community-d
  - Fix link to `CentOS` image in `README.md` ([#161](https://github.com/weaveworks/ignite/pull/161), [@akshaychhajed](https://github.com/akshaychhajed))
  - Added `loop` kernel module dependency to `docs/dependencies.md` ([#155](https://github.com/weaveworks/ignite/pull/155), [@curx](https://github.com/curx))
  - Clarify usage on `Ubuntu` and `CentOS`, embed links to [Joe Beda](https://twitter.com/jbeda)'s TGIK recording ([#175](https://github.com/weaveworks/ignite/pull/175), [@luxas](https://github.com/luxas))
- - Added a brand new `FAQ`! Check it out at [FAQ.md](FAQ.md)! ([#197](https://github.com/weaveworks/ignite/pull/197), [@luxas](https://github.com/luxas))
+ - Added a brand new `FAQ`! Check it out at [FAQ.md](docs/FAQ.md)! ([#197](https://github.com/weaveworks/ignite/pull/197), [@luxas](https://github.com/luxas))
 
 
 ## Trying it out / Next Steps!
@@ -681,7 +681,7 @@ chmod +x ignite
 sudo mv ignite /usr/local/bin
 ```
 
-A more throughout installation guide is available here: https://github.com/weaveworks/ignite/blob/master/docs/installation.md
+A more throughout installation guide is available here: https://ignite.readthedocs.io/en/stable/installation.html
 
 
 ---
@@ -700,7 +700,7 @@ There are many significant changes compared to before:
 
  - Make base and kernel OCI images composable for a VM. You can now choose what kernel to combine with what base image freely https://github.com/weaveworks/ignite/pull/105
  - Add the GitOps mode for Ignite using `ignite gitops` https://github.com/weaveworks/ignite/pull/100
-   - Documentation: https://github.com/weaveworks/ignite/blob/master/gitops
+   - Documentation: https://ignite.readthedocs.io/en/stable/gitops.html
  - Make it possible to run `ignite create` and `ignite run` declaratively https://github.com/weaveworks/ignite/commit/57333646b52a0e1e3a725340e994b2749b39e5bd
    - Documentation: https://github.com/weaveworks/ignite/blob/master/docs/declarative-config.md
  - Added Prometheus metrics for `ignite-spawn` https://github.com/weaveworks/ignite/commit/94abc529972873db3fa3ee954099a4f62d67b6f3
