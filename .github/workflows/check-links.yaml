@@ -20,12 +20,16 @@ jobs:
           npm i markdown-link-check
 
       - name: Check non-user-guide markdown docs
+        id: lc1
         run: |
           find . \
             -name vendor -prune -o \
             -name node_modules -prune -o \
             -iname '*.md' \
             -exec ./node_modules/markdown-link-check/markdown-link-check --config .github/workflows/markdown-link-check-config.json {} \;
+
+      - name: Fail if there were link errors
+        run: exit ${{ steps.lc1.outputs.exit_code }}
 
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v1
@@ -42,9 +46,10 @@ jobs:
 
         # Using liche action to check generated HTML site
       - name: Link Checker (generated site)
-        id: lc
+        id: lc2
         uses: peter-evans/link-checker@v1
         with:
           args: -d site/ -r site/ -x '^github.com/\S+/\S+/(issue|pull)' -c 10
+
       - name: Fail if there were link errors
-        run: exit ${{ steps.lc.outputs.exit_code }}
+        run: exit ${{ steps.lc2.outputs.exit_code }}
